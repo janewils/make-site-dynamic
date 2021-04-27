@@ -10,7 +10,9 @@ function setup() {
   It runs attachPokeList when done
 */
 function getPokemonList() {
-  /* TODO 1 */
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
+        .then(response => response.json())
+        .then(data => attachPokeList(data.results));
 }
 
 /*
@@ -19,7 +21,9 @@ function getPokemonList() {
   It should accept a URL to fetch
 */
 function getPokemon(url) {
-  /* TODO 2 */
+    fetch(url)
+        .then(response => response.json())
+        .then(data => attachPokeView(data));
 }
 
 /*
